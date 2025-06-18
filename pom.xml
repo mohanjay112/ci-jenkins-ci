@@ -159,6 +159,31 @@
 		            </execution>
 		        </executions>
 		</plugin>
+        <!-- Checkstyle Plugin -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-checkstyle-plugin</artifactId>
+            <version>3.1.2</version>
+            <executions>
+                <execution>
+                  <id>checkstyle-check</id>
+                  <phase>validate</phase>
+                  <goals>
+                    <goal>checkstyle</goal>
+                  </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <configLocation>google_checks.xml</configLocation> 
+                <encoding>UTF-8</encoding>
+                <consoleOutput>true</consoleOutput>
+                <failsOnError>true</failsOnError>
+                <outputFile>target/checkstyle-result.xml</outputFile>
+                <outputFileFormat>xml</outputFileFormat>
+             </configuration>
+        </plugin>
+
+        
         </plugins>
     </build>
 	<repositories>
